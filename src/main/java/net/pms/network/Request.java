@@ -173,6 +173,7 @@ public class Request extends HTTPResource {
 		} else {
 			if (soapaction != null && soapaction.indexOf("ContentDirectory:1#X_GetFeatureList") > -1) {
 				//  If we don't return a 500 error, Samsung 2012 TVs time out.
+				logger.debug("Invalid action in SOAPACTION: ContentDirectory:1#X_GetFeatureList");
 				output(output, HTTP_500);
 			} else {
 				output(output, http10 ? HTTP_200_OK_10 : HTTP_200_OK);
@@ -429,7 +430,7 @@ public class Request extends HTTPResource {
 				response.append(CRLF);
 				response.append(HTTPXMLHelper.SOAP_ENCODING_HEADER);
 				response.append(CRLF);
-				response.append(HTTPXMLHelper.SAMSUNG_ERROR_RESPONSE);
+				response.append(HTTPXMLHelper.UPNP_INVALID_ACTION);
 				response.append(CRLF);
 				response.append(HTTPXMLHelper.SOAP_ENCODING_FOOTER);
 				response.append(CRLF);
