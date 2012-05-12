@@ -293,11 +293,12 @@ public class RequestHandlerV2 extends SimpleChannelUpstreamHandler {
 				HttpResponseStatus.PARTIAL_CONTENT);
 		} else {
 			String soapAction = nettyRequest.getHeader("SOAPACTION");
+		
 			if( (soapAction != null) && soapAction.contains("X_GetFeatureList") ) {
 				logger.debug("Invalid action in SOAPACTION: " + soapAction);	
 				response = new DefaultHttpResponse(
 					HttpVersion.HTTP_1_1, HttpResponseStatus.INTERNAL_SERVER_ERROR);
-			} else {
+			} else { 
 				response = new DefaultHttpResponse(
 				/*request.isHttp10() ? HttpVersion.HTTP_1_0
 				: */HttpVersion.HTTP_1_1, HttpResponseStatus.OK);

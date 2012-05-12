@@ -529,6 +529,7 @@ public class RequestV2 extends HTTPResource {
 				response.append(HTTPXMLHelper.SOAP_ENCODING_HEADER);
 				response.append(CRLF);
 				response.append(HTTPXMLHelper.UPNP_INVALID_ACTION);
+				//response.append(HTTPXMLHelper.SAMSUNG_FEATURE_LIST);
 				response.append(CRLF);
 				response.append(HTTPXMLHelper.SOAP_ENCODING_FOOTER);
 				response.append(CRLF);
